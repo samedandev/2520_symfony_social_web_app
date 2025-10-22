@@ -1,4 +1,19 @@
-<div>The current message is: </div>
+
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
 <div>
-  <b>{{ message }}</b>
+  <div>The current message is: </div>
+    <div>
+      <b>{{ message }}</b>
+    </div>
 </div>
+
+{% endblock %}
+
+{% block title %}
+  NEW Title
+{% endblock %}
+

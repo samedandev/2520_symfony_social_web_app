@@ -23,3 +23,8 @@
 > HelloController.php -> return $this->render('hello/index.html.twig', function);
 
 > /temlates/hello/index.html.twig -> <i>{{ message }}</i>
+
+## Twig template inheritance
+
+> show_one.html.twig -> {% extends 'base.html.twig' %}
+> show_one.html.twig -> {% block body %} X {% endblock%}
