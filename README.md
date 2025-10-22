@@ -13,3 +13,5 @@
 # Find current routes
 
 > symfony console debug:router
+
+### Twig templates
