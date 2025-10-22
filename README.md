@@ -15,3 +15,11 @@
 > symfony console debug:router
 
 ### Twig templates
+
+> composer require twig
+
+> HelloControler.php -> class HelloController extends AbstractController
+
+> HelloController.php -> return $this->render('hello/index.html.twig', function);
+
+> /temlates/hello/index.html.twig -> <i>{{ message }}</i>
