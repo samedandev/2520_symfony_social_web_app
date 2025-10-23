@@ -28,3 +28,7 @@
 
 > show_one.html.twig -> {% extends 'base.html.twig' %}
 > show_one.html.twig -> {% block body %} X {% endblock%}
+
+### TWIG Templates
+
+> https://twig.symfony.com/
