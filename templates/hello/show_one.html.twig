@@ -3,16 +3,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-<div>
-  <div>The current message is: </div>
-    <div>
-      <b>{{ message }}</b>
-    </div>
-</div>
-
+<div> The Current message is : <i>{{ message.message }}</i></div>
+      <b>{{ include('hello/_message.html.twig', {message: message}) }} </b>
 {% endblock %}
-
+    
 {% block title %}
   NEW Title
 {% endblock %}

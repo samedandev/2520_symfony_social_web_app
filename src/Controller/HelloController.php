@@ -9,7 +9,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class HelloController extends AbstractController
 {
   private array $messages = [
-   "Hello", "Hi", "Salut"
+   ['message' => 'Hello', 'created' => '2025/09/12'],
+    ['message' => 'Hi', 'created' => '2025/08/12'],
+    ['message' => 'Bye!', 'created' => '2021/05/12']
   ];
 
    #[Route('/{limit<\d+>?3}', name: 'app_index')]
@@ -17,7 +19,9 @@ class HelloController extends AbstractController
    {
       return $this->render(
         'hello/index.html.twig',
-        ['messages' => array_slice($this->messages, 0, $limit) ]
+        ['messages' => $this->messages,
+          'limit' => $limit
+        ]
       );
     //  return new Response(
     //    implode(', ', array_slice($this->messages, 0, $limit) )); 

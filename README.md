@@ -32,3 +32,7 @@
 ### TWIG Templates
 
 > https://twig.symfony.com/
+
+## Partial template
+
+> /templates/hello/\_message.html.twig
