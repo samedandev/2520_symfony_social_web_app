@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HelloController extends AbstractController
 {
   private array $messages = [
-   ['message' => 'Hello', 'created' => '2025/09/12'],
+    ['message' => 'Hello', 'created' => '2025/09/12'],
     ['message' => 'Hi', 'created' => '2025/08/12'],
     ['message' => 'Bye!', 'created' => '2021/05/12']
   ];

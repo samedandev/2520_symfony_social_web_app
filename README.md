@@ -36,3 +36,13 @@
 ## Partial template
 
 > /templates/hello/\_message.html.twig
+
+### Links
+
+# Get paths names
+
+> symfony console debug:router
+
+# path Twig function
+
+> index.html.twig -> <a href="{{ path('app_show_one', {id: key}) }}">
