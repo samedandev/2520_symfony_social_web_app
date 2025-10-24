@@ -46,3 +46,13 @@
 # path Twig function
 
 > index.html.twig -> <a href="{{ path('app_show_one', {id: key}) }}">
+
+### Symfony Maker Bundle
+
+> composer require --dev symfony/maker-bundle
+
+# List make commands
+
+> symfony console list make
+
+> symfony console make:controller
