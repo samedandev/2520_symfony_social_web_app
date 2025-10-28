@@ -120,3 +120,7 @@
 > https://symfony.com/doc/current/doctrine.html#persisting-objects-to-the-database
 
 ### Depedency Injection
+
+### Param Converter
+
+> composer require sensio/framework-extra-bundle

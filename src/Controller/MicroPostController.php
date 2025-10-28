@@ -15,6 +15,9 @@ final class MicroPostController extends AbstractController
     public function index(MicroPostRepository $posts): Response
     {
         // dd($posts->findAll());
+        return $this->render('micro_post/index.html.twig', [
+            'posts' => $posts->findAll(),
+        ]);
         // dd($posts->find(2));
         // dd($posts->findOneBy(['title' => 'Welcome to US']));
         // dd($posts->findBy([]));
@@ -28,18 +31,33 @@ final class MicroPostController extends AbstractController
         /* END Content removed after 6.2+ */
 
         // EDIT Post
-        $microPost = $posts->find(4);
-        $microPost->setTitle('EDITED Welcome');
-        $posts->add($microPost, true);
+        // $microPost = $posts->find(4);
+        // $microPost->setTitle('EDITED Welcome');
+        // $posts->add($microPost, true);
 
         // REMOVE Post
-        $microPost = $posts->find(4);
-        $posts->remove($microPost, true);
+        // $microPost = $posts->find(4);
+        // $posts->remove($microPost, true);
 
         // $posts->add($microPost, true);
         
         return $this->render('micro_post/index.html.twig', [
             'controller_name' => 'MicroPostController',
+        ]);
+    }
+
+    // #[Route('/micro-post/{id}', name: 'app_micro_post_show')]
+    // public function showOne($id, MicroPostRepository $posts): Response
+    // {
+    //     dd($posts->find($id));
+    // }
+
+    // Extra Bundle
+    #[Route('/micro-post/{post}', name: 'app_micro_post_show')]
+    public function showOne(MicroPost $post): Response
+    {
+        return $this->render('micro_post/show.html.twig', [
+            'post' => $post
         ]);
     }
 }
