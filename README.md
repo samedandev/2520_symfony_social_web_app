@@ -4,6 +4,10 @@
 
 > https://www.udemy.com/course/symfony-framework-hands-on/learn/lecture/33253600#questions/18701102
 
+# This git
+
+> https://github.com/samedandev/2520_symfony_social_web_app
+
 # Start server Command
 
 > symfony server:start
@@ -124,3 +128,18 @@
 ### Param Converter
 
 > composer require sensio/framework-extra-bundle
+
+### Symfony FORMS
+
+> https://symfony.com/doc/current/forms.html
+> composer require symfony/form
+
+# Abstract
+
+> $this = abstract Controller
+
+# Success message
+
+> base.html.twig
+
+> ![Form](https://github.com/samedandev/2520_symfony_social_web_ap/blob/main/_printscreens/01.jpg)
