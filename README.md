@@ -142,4 +142,4 @@
 
 > base.html.twig
 
-> ![Form](https://github.com/samedandev/2520_symfony_social_web_ap/blob/main/_printscreens/01.jpg)
+> ![Form](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/01.jpg)
