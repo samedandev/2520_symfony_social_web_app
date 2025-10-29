@@ -150,3 +150,11 @@
 > https://symfony.com/doc/current/form/form_themes.html
 
 > /config/paackages/twig.yaml -> form_themes: ['bootstrap_5_layout.html.twig']
+
+### Create forms automatically
+
+> symfony console make:form
+
+# New file created
+
+> src/Form/MicroPostType.php

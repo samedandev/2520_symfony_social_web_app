@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\MicroPost;
+use App\Form\MicroPostType;
 use App\Repository\MicroPostRepository;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -67,12 +68,15 @@ final class MicroPostController extends AbstractController
     #[Route('/micro-post/add', name: 'app_micro_post_add', priority: 2)]
     public function add(Request $request, MicroPostRepository $posts): Response
     {
-        $microPost = new MicroPost();
-        $form = $this->createFormBuilder($microPost)
-            ->add('title')
-            ->add('text')
-            // ->add('submit', SubmitType::class, ['label'=> 'Ajouter'])
-            ->getForm();  
+        // $microPost = new MicroPost();
+        // $form = $this->createFormBuilder($microPost)
+        //     ->add('title')
+        //     ->add('text')
+        //     // ->add('submit', SubmitType::class, ['label'=> 'Ajouter'])
+        //     ->getForm();
+
+        // MicroPost class
+        $form = $this->createForm(MicroPostType::class, new MicroPost());  
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
@@ -83,6 +87,37 @@ final class MicroPostController extends AbstractController
 
             // Add a flash message (in base.html.twig)
             $this->addFlash('success', 'Your micro post has been added');
+            return $this->redirectToRoute('app_micro_post'); // /micro-post/
+            // Redirect 
+        }
+        // return $this->renderForm('task/new.html.twig', [
+        return $this->render('micro_post/add.html.twig', [
+            'form' => $form
+        ]);
+    }
+
+    // Edit Form
+    #[Route('/micro-post/{post}/edit', name: 'app_micro_post_edit')]
+    public function edit(MicroPost $post, Request $request, MicroPostRepository $posts): Response
+    {
+        // $form = $this->createFormBuilder($post)
+        //     ->add('title')
+        //     ->add('text')
+        //     // ->add('submit', SubmitType::class, ['label'=> 'Ajouter'])
+        //     ->getForm();  
+
+        // MicroPost class
+        $form = $this->createForm(MicroPostType::class, $post);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $post = $form->getData();
+            // dd($post);
+            $posts->add($post, true); // 'add' works for edit also
+
+            // Add a flash message (in base.html.twig)
+            $this->addFlash('success', 'Edited successfully');
             return $this->redirectToRoute('app_micro_post'); // /micro-post/
             // Redirect 
         }
