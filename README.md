@@ -143,3 +143,10 @@
 > base.html.twig
 
 > ![Form](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/01.jpg)
+
+# Form Themes
+
+> https://symfony.com/doc/current/form/bootstrap5.html
+> https://symfony.com/doc/current/form/form_themes.html
+
+> /config/paackages/twig.yaml -> form_themes: ['bootstrap_5_layout.html.twig']
