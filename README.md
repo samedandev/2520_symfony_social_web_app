@@ -158,3 +158,11 @@
 # New file created
 
 > src/Form/MicroPostType.php
+
+### Tailwind integration
+
+> https://tailwindcss.com/docs/dark-mode
+
+# Dark mode
+
+> ![Dark Mode](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/02.jpg)
