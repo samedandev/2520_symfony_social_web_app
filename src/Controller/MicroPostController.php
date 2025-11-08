@@ -122,7 +122,7 @@ final class MicroPostController extends AbstractController
             // Redirect 
         }
         // return $this->renderForm('task/new.html.twig', [
-        return $this->render('micro_post/add.html.twig', [
+        return $this->render('micro_post/edit.html.twig', [
             'form' => $form
         ]);
     }
