@@ -166,3 +166,33 @@
 # Dark mode
 
 > ![Dark Mode](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/02.jpg)
+
+### Create Form Theme
+
+# New theme
+
+> /tempates/form/fields.html.twig
+
+# Use Theme
+
+> /config/packages/twig.yaml
+
+# Validator
+
+> composer require symfony/validator
+
+> /config/packages/framework.yaml -> form: legacy_error_messages: false
+
+# Add to the template
+
+> /templates/micro_post/\_form.html.twig ->
+
+### Disable HTML5 form validation
+
+> \_form.html.twig -> {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+# Check form is valid in Controller
+
+> MicroPostController.php -> $form->isValid()
+> /entity/MicroPost.php -> #[Assert\NotBlank()]
+> ![Validator in Controller](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/03.jpg)
