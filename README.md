@@ -196,3 +196,21 @@
 > MicroPostController.php -> $form->isValid()
 > /entity/MicroPost.php -> #[Assert\NotBlank()]
 > ![Validator in Controller](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/03.jpg)
+
+### USER One To One relation
+
+> symfony console make:user
+
+# Add several properties
+
+> symfony console make:migration
+
+> symfony.exe console doctrine:migrations:migrate
+
+### Add One TO One relationship between User & UserProfile
+
+> ![OneToOne](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/04.jpg)
+
+# Apply to Database
+
+> symfony console make:migration
