@@ -4,7 +4,9 @@
 {% endblock %}
 
 {% block bread %}
-	→ Add Comment
+	→
+	<a href="{{ path('app_micro_post_show', { post: post.id}) }}">Post</a>
+	→ Comment
 {% endblock %}
 
 {% block body %}
@@ -26,8 +28,8 @@
 
 	<div>
 		<button type="submit" class="block w-full shadow-sm bordertransparent bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-400 text-white rounded-md border
-																								           p-2 mt-4 mb-2
-																								           ">Ajouter commentaire</button>
+																														           p-2 mt-4 mb-2
+																														           ">Ajouter commentaire</button>
 	</div>
 
 	{{ form_end(form) }}
