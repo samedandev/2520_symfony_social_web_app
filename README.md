@@ -238,3 +238,7 @@
 # Apply migration to DBB
 
 > symfony.exe console doctrine:migrations:migrate
+
+### OneToMany Relation
+
+> 'LAZY'|'EAGER'|'EXTRA_LAZY'
