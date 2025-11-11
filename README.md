@@ -214,3 +214,27 @@
 # Apply to Database
 
 > symfony console make:migration
+
+# Cascade User + UserProfile relationship
+
+> UserProfile.php -> #[ORM\OneToOne(inversedBy: 'userProfile', cascade: ['persist', 'remove'])]
+
+### One To Many Relation
+
+> symfony console make:entity -> Entity/Comment.php + Repository/CommentRepository.php
+
+# Update MicroPost
+
+> symfony console make:entity -> MicroPost (edit) -> New Property Name (comments) -> Field Type (OneToMany)
+
+# What class should this entity () be related to?
+
+> Comment -> A new property will also be added to the Comment class so that you can access and set the related MicroPost object from it.
+
+# Create migration
+
+> symfony console make:migration
+
+# Apply migration to DBB
+
+> symfony.exe console doctrine:migrations:migrate
