@@ -22,7 +22,8 @@ final class MicroPostController extends AbstractController
     {
         // dd($posts->findAll());
         return $this->render('micro_post/index.html.twig', [
-            'posts' => $posts->findAll(),
+            // 'posts' => $posts->findAll(),
+            'posts' => $posts->findAllWithComments() // comes from MicroPostRepository.php
         ]);
         // dd($posts->find(2));
         // dd($posts->findOneBy(['title' => 'Welcome to US']));

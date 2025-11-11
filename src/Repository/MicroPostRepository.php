@@ -34,6 +34,20 @@ class MicroPostRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+    public function findAllWithComments(): array 
+    {
+        // 'p' is the table in the database = MicroPost
+        // 'c' is the alliace to the 'p.comments' relation
+        return $this->createQueryBuilder('p')
+            ->addSelect('c') // selectes all the fileds from all the comments related to this post
+            ->leftJoin('p.comments', 'c') // 'leftJoin' selects all the posts, comments or not
+            // ->innerJoin('p.comments', 'c') // 'innerJoin' selects only posts with comments
+            ->orderBy('p.created', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
     /* END Content removed after 6.2+ */
 
     //    /**

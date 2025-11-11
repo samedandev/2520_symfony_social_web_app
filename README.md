@@ -255,3 +255,8 @@
 ### FORM for Add Comments
 
 > symfony console make:form -> /src/Form/CommentType.php
+
+### Get posts with comments in One single Query
+
+> MicroPostRepository.php -> public function findAllWithComments()
+> MicroPostController.php -> Replace 'posts' => $posts->findAll() WITH 'posts' => $posts->findAllWithComments()
