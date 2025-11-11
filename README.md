@@ -239,6 +239,15 @@
 
 > symfony.exe console doctrine:migrations:migrate
 
-### OneToMany Relation
+### OneToMany Relation - Comment to Post
 
 > 'LAZY'|'EAGER'|'EXTRA_LAZY'
+
+### ManyToMany Relation - likes
+
+> symfony console make:entity
+
+> ![ManyToMany](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/05.jpg)
+
+> symfony.exe console make:migration
+> symfony.exe console doctrine:migrations:migrate
