@@ -260,3 +260,13 @@
 
 > MicroPostRepository.php -> public function findAllWithComments()
 > MicroPostController.php -> Replace 'posts' => $posts->findAll() WITH 'posts' => $posts->findAllWithComments()
+
+### Authentication & Authorization
+
+> /config/packages/security.yaml
+
+## Create User Accounts with Hashed Passwords
+
+> AppFixtures.php -> public function \_\_construct(private UserPasswordHasherInterface $userPasswordHasher)
+
+> symfony console doctrine:fixtures:load
