@@ -251,3 +251,7 @@
 
 > symfony.exe console make:migration
 > symfony.exe console doctrine:migrations:migrate
+
+### FORM for Add Comments
+
+> symfony console make:form -> /src/Form/CommentType.php

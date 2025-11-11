@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\MicroPost;
+use App\Form\CommentType;
 use App\Form\MicroPostType;
+use App\Repository\CommentRepository;
 use App\Repository\MicroPostRepository;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -96,6 +99,8 @@ final class MicroPostController extends AbstractController
         ]);
     }
 
+    
+
     // Edit Form
     #[Route('/micro-post/{post}/edit', name: 'app_micro_post_edit')]
     public function edit(MicroPost $post, Request $request, MicroPostRepository $posts): Response
@@ -124,6 +129,36 @@ final class MicroPostController extends AbstractController
         // return $this->renderForm('task/new.html.twig', [
         return $this->render('micro_post/edit.html.twig', [
             'form' => $form
+        ]);
+    }
+
+    // Add Comment Form
+    #[Route('/micro-post/{post}/comment', name: 'app_micro_post_comment')]
+    public function addComment(MicroPost $post, Request $request, CommentRepository $comments): Response
+    {
+       
+        // MicroPost class
+        $form = $this->createForm(CommentType::class, new Comment());
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $comment = $form->getData();
+            $comment->setPost($post);
+            // dd($post);
+            $comments->add($comment, true); // 'add' works for edit also
+
+            // Add a flash message (in base.html.twig)
+            $this->addFlash('success', 'Comment added successfully');
+            return $this->redirectToRoute('app_micro_post_show', [
+                'post' => $post->getId()
+            ]); // /micro-post/
+            // Redirect 
+        }
+        
+        return $this->render('micro_post/comment.html.twig', [
+            'form' => $form,
+            'post' => $post
         ]);
     }
 }
