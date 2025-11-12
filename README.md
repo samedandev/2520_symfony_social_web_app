@@ -270,3 +270,21 @@
 > AppFixtures.php -> public function \_\_construct(private UserPasswordHasherInterface $userPasswordHasher)
 
 > symfony console doctrine:fixtures:load
+
+## Command creating Users
+
+> symfony console make:command -> app:create-user
+
+> /src/Command/CreateUserCommand.php
+
+# See comands
+
+> symfony console app
+
+# Add User in CreateUserCommand.php
+
+> execute() -> $this->users->add($user, true);
+
+# Command Line CreateUser
+
+> symfony console app:create-user xxx@test.com 12345678
