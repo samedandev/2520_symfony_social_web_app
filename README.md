@@ -295,8 +295,14 @@
 
 > symfony console make:controller -> LoginController.php
 
-# Template
+# Template Login
 
 > /templates/login/index.html.twig -> actionForm is set in security.yaml
 
 > ![SuccessLogin](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/06.jpg)
+
+### FORM Logout
+
+> security.yaml -> firewalls:main:logout:path:app_logout
+
+> ![Logout](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/07.jpg)
