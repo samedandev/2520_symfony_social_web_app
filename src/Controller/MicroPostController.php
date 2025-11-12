@@ -14,6 +14,8 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+
 
 final class MicroPostController extends AbstractController
 {
@@ -70,6 +72,7 @@ final class MicroPostController extends AbstractController
 
     // Post Form
     #[Route('/micro-post/add', name: 'app_micro_post_add', priority: 2)]
+    #[IsGranted('IS_AUTHENTICATED_FULLY')]
     public function add(Request $request, MicroPostRepository $posts): Response
     {
         // dd($this->getUser());
@@ -79,6 +82,12 @@ final class MicroPostController extends AbstractController
         //     ->add('text')
         //     // ->add('submit', SubmitType::class, ['label'=> 'Ajouter'])
         //     ->getForm();
+        // $this->isGranted(); // Boolean
+
+        // $this->denyAccessUnlessGranted(
+        //     // 'IS_AUTHENTICATED_FULLY'
+        //     'PUBLIC_ACCESS'
+        // );
 
         // MicroPost class
         $form = $this->createForm(MicroPostType::class, new MicroPost());  
@@ -87,7 +96,7 @@ final class MicroPostController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             $post = $form->getData();
             // dd($post);
-            $post->setCreated(new DateTime());
+            // $post->setCreated(new DateTime()); // is done in __construct
             $post->setAuthor($this->getUser());
             $posts->add($post, true);
 
@@ -106,6 +115,7 @@ final class MicroPostController extends AbstractController
 
     // Edit Form
     #[Route('/micro-post/{post}/edit', name: 'app_micro_post_edit')]
+    #[IsGranted('ROLE_EDITOR')]
     public function edit(MicroPost $post, Request $request, MicroPostRepository $posts): Response
     {
         // $form = $this->createFormBuilder($post)
@@ -138,6 +148,7 @@ final class MicroPostController extends AbstractController
 
     // Add Comment Form
     #[Route('/micro-post/{post}/comment', name: 'app_micro_post_comment')]
+    #[IsGranted('ROLE_COMMENTER')]
     public function addComment(MicroPost $post, Request $request, CommentRepository $comments): Response
     {
        

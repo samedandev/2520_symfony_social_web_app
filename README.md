@@ -334,3 +334,22 @@
 # Condition LoggedIn in twig template
 
 > base.html.twig -> {% if app.user %}
+
+### ROLES User MicroPostController.php
+
+# Deny v1
+
+> IS_AUTHENTICATED_FULLY, PUBLIC_ACCESS
+
+# Deny V2
+
+> #[IsGranted('IS_AUTHENTICATED_FULLY')]
+
+# Deny V3
+
+> security.yaml -> acces_control
+
+### Add Created to Comments
+
+> symfony console make:entity
+> ![Add created to Comment](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/08.jpg)
