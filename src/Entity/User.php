@@ -42,9 +42,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToMany(targetEntity: MicroPost::class, mappedBy: 'likedBy')]
     private Collection $liked;
 
+    /**
+     * @var Collection<int, MicroPost>
+     */
+    #[ORM\OneToMany(targetEntity: MicroPost::class, mappedBy: 'author')]
+    private Collection $posts;
+
+    /**
+     * @var Collection<int, Comment>
+     */
+    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'author')]
+    private Collection $no;
+
     public function __construct()
     {
         $this->liked = new ArrayCollection();
+        $this->posts = new ArrayCollection();
+        $this->no = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -156,6 +170,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if ($this->liked->removeElement($liked)) {
             $liked->removeLikedBy($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, MicroPost>
+     */
+    public function getPosts(): Collection
+    {
+        return $this->posts;
+    }
+
+    public function addPost(MicroPost $post): static
+    {
+        if (!$this->posts->contains($post)) {
+            $this->posts->add($post);
+            $post->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removePost(MicroPost $post): static
+    {
+        if ($this->posts->removeElement($post)) {
+            // set the owning side to null (unless already changed)
+            if ($post->getAuthor() === $this) {
+                $post->setAuthor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Comment>
+     */
+    public function getNo(): Collection
+    {
+        return $this->no;
+    }
+
+    public function addNo(Comment $no): static
+    {
+        if (!$this->no->contains($no)) {
+            $this->no->add($no);
+            $no->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNo(Comment $no): static
+    {
+        if ($this->no->removeElement($no)) {
+            // set the owning side to null (unless already changed)
+            if ($no->getAuthor() === $this) {
+                $no->setAuthor(null);
+            }
         }
 
         return $this;

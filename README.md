@@ -306,3 +306,23 @@
 > security.yaml -> firewalls:main:logout:path:app_logout
 
 > ![Logout](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/07.jpg)
+
+### Link User to Posts, Comments (Author)
+
+> symfony console make:entity
+
+# DELETE Data in Database
+
+> symfony console doctrine:schema:drop --force
+
+# Create Schema for the empty database
+
+> symfony console doctrine:schema:create
+
+# Insert New Data
+
+> AppFixtures.php -> $microPost3->setAuthor($user1);
+
+# Load new Fixtures in Database
+
+> symfony console doctrine:fixtures:load
