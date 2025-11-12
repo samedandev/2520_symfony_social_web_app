@@ -326,3 +326,11 @@
 # Load new Fixtures in Database
 
 > symfony console doctrine:fixtures:load
+
+### Current User
+
+> MicroPostController.php -> $comment->setAuthor($this->getUser());
+
+# Condition LoggedIn in twig template
+
+> base.html.twig -> {% if app.user %}

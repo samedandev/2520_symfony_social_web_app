@@ -72,6 +72,7 @@ final class MicroPostController extends AbstractController
     #[Route('/micro-post/add', name: 'app_micro_post_add', priority: 2)]
     public function add(Request $request, MicroPostRepository $posts): Response
     {
+        // dd($this->getUser());
         // $microPost = new MicroPost();
         // $form = $this->createFormBuilder($microPost)
         //     ->add('title')
@@ -87,6 +88,7 @@ final class MicroPostController extends AbstractController
             $post = $form->getData();
             // dd($post);
             $post->setCreated(new DateTime());
+            $post->setAuthor($this->getUser());
             $posts->add($post, true);
 
             // Add a flash message (in base.html.twig)
@@ -147,6 +149,7 @@ final class MicroPostController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             $comment = $form->getData();
             $comment->setPost($post);
+            $comment->setAuthor($this->getUser());
             // dd($post);
             $comments->add($comment, true); // 'add' works for edit also
 
