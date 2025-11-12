@@ -42,7 +42,8 @@ class HelloController extends AbstractController
       ## Delete comment from existing post
       $post = $posts->find(10);
       // $comment = $post->getComments()->count();
-      $comment = $post->getComments()[0];
+      // $comment = $post->getComments()[0];
+      $comment = $post->getComments();
       
       // dd($comment);
       // $post->removeComment($comment);

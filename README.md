@@ -288,3 +288,15 @@
 # Command Line CreateUser
 
 > symfony console app:create-user xxx@test.com 12345678
+
+### FORM Login
+
+> security.yaml -> firewalls:main:form_login:login_path: app_login
+
+> symfony console make:controller -> LoginController.php
+
+# Template
+
+> /templates/login/index.html.twig -> actionForm is set in security.yaml
+
+> ![SuccessLogin](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/06.jpg)
