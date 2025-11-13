@@ -353,3 +353,15 @@
 
 > symfony console make:entity
 > ![Add created to Comment](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/08.jpg)
+
+### VOTERS
+
+> symfony console make:voter
+
+# New class
+
+> /src/Security/Voter/MicroPostVoter.php -> voteOnAttribute()
+
+# MicroPostController.php
+
+> #[IsGranted(MicroPost::VIEW, 'post')]
