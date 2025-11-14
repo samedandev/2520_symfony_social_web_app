@@ -73,7 +73,8 @@ final class MicroPostController extends AbstractController
 
     // Post Form
     #[Route('/micro-post/add', name: 'app_micro_post_add', priority: 2)]
-    #[IsGranted('IS_AUTHENTICATED_FULLY')]
+    // #[IsGranted('IS_AUTHENTICATED_FULLY')]
+    #[IsGranted('ROLE_WRITER_VERIFIED')]
     public function add(Request $request, MicroPostRepository $posts): Response
     {
         // dd($this->getUser());

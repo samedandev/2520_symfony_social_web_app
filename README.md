@@ -405,3 +405,18 @@
 # Repeated PAssword
 
 > /RegistrationFormType
+
+### Be verified to add Posts
+
+## ROLE_WRITER_VERIFIED
+
+> User.php -> getRoles() -> if($this->isVerified())
+
+# Post only if verified
+
+> MicroPostController.php
+
+```
+#[Route('/micro-post/add', name: 'app_micro_post_add', priority: 2)]
+#[IsGranted('ROLE_WRITER_VERIFIED')]
+```
