@@ -365,3 +365,29 @@
 # MicroPostController.php
 
 > #[IsGranted(MicroPost::VIEW, 'post')]
+
+### REGISTRATION
+
+> symfony console make:registration-form
+
+# New files
+
+> registrationController.php & /src/Security/emailVerifier.php
+
+> symfony console make:migration
+
+## Register Form
+
+> /src/Form/RegistrationFormType.php
+
+### Mailer
+
+# Mailtrap Symfony tutorial
+
+> https://github.com/mailtrap/mailtrap-php/tree/main/src/Bridge/Symfony
+
+> /config/services.yaml
+
+# test email
+
+> php bin/console mailer:test testemail@test.com

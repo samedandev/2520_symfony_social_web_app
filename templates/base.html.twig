@@ -16,23 +16,23 @@
 		 <script src="https://cdn.tailwindcss.com"></script>
 
 		 <script>
-																				
-																				            tailwind.config = {
-																				
-																				                darkMode: 'class'
-																				
-																				            }
-																				
-																				        </script>
+																												
+																												            tailwind.config = {
+																												
+																												                darkMode: 'class'
+																												
+																												            }
+																												
+																												        </script>
 
-		{#           <script>
-																				    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-																				    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-																				        document.documentElement.classList.add('dark');
-																				    } else {
-																				        document.documentElement.classList.remove('dark')
-																				    }
-																				</script>
+		{#               <script>
+																												    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+																												    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+																												        document.documentElement.classList.add('dark');
+																												    } else {
+																												        document.documentElement.classList.remove('dark')
+																												    }
+																												</script>
 	#}
 
 	</head>
@@ -56,7 +56,10 @@
 						</div>
 					{% else %}
 						<div>
-							<a href="{{ path('app_login')}}">Login</a>
+							<a href="{{ path('app_login')}}" class="underline">Login</a>
+							or
+							<a href="{{ path('app_register')}}" class="underline">Register</a>
+
 						</div>
 					{% endif %}
 
