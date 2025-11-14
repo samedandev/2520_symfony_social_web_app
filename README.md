@@ -391,3 +391,17 @@
 # test email
 
 > php bin/console mailer:test testemail@test.com
+
+### Register Form
+
+> /templates/registration/register.html.twig
+
+## Errors on register form
+
+# Unique email
+
+> User.php -> #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+
+# Repeated PAssword
+
+> /RegistrationFormType

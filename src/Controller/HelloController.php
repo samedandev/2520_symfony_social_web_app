@@ -43,7 +43,9 @@ class HelloController extends AbstractController
       $post = $posts->find(10);
       // $comment = $post->getComments()->count();
       // $comment = $post->getComments()[0];
-      $comment = $post->getComments();
+
+      // GIVES ERRORS
+      // $comment = $post->getComments();
       
       // dd($comment);
       // $post->removeComment($comment);
