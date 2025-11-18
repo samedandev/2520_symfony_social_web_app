@@ -437,8 +437,31 @@
 
 > security.yaml -> user_checker: App\Security\UserChecker
 
-> > ![Banned](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/10.jpg)
+> ![Banned](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/10.jpg)
 
 # Checkers Tutorial
 
 > https://symfony.com/doc/6.4/security/user_checkers.html
+
+### User PROFILE
+
+> symfony console make:form
+
+# UserProfileType
+
+> /src/Form/UserProfileType.php
+
+# SettingsProfileController
+
+> /src/Controller/SettingsProfileController
+
+# Twig Files
+
+> /templates/settings_profile/profile.html.twig
+> /templates/settings_profile/\_profile_form.html.twig
+
+### Embed forms in Profile Form
+
+> RegistrationFormType.php -> ->add('userProfile');
+
+> ![User Registration](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/11.jpg)
