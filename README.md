@@ -420,3 +420,25 @@
 #[Route('/micro-post/add', name: 'app_micro_post_add', priority: 2)]
 #[IsGranted('ROLE_WRITER_VERIFIED')]
 ```
+
+### User Checker
+
+> https://symfony.com/doc/6.4/security/user_checkers.html
+
+# Add property 'bannedUntil' for User
+
+> ![Banned User](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/09.jpg)
+
+# UserChecker for banned timedate
+
+> /src/Security/UserChecker.php
+
+### Update FIREWALL
+
+> security.yaml -> user_checker: App\Security\UserChecker
+
+> > ![Banned](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/10.jpg)
+
+# Checkers Tutorial
+
+> https://symfony.com/doc/6.4/security/user_checkers.html
