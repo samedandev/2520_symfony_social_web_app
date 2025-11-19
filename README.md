@@ -473,3 +473,19 @@
 # Twig template
 
 > /templates/profle/show.html.twig
+
+### LIKES
+
+> LikesController
+
+# Template
+
+> /templates/micor_post/\_post.html.twig
+
+# Get number of likes
+
+> likedBy -> getLikedBy() in MicroPost.php
+
+# Likes are saved in the micro_post_user table
+
+> ![Likes](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/12.jpg)
