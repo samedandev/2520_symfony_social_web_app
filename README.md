@@ -489,3 +489,11 @@
 # Likes are saved in the micro_post_user table
 
 > ![Likes](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/12.jpg)
+
+### User Following
+
+> ![Follows](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/13.jpg)
+
+### Fixed Database Migration
+
+> https://symfonycasts.com/blog/clean-up-migrations
