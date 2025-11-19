@@ -497,3 +497,16 @@
 ### Fixed Database Migration
 
 > https://symfonycasts.com/blog/clean-up-migrations
+
+### FolowerController
+
+> symfony console make:controller
+
+```
+created: src/Controller/FollowerController.php
+ created: templates/follower/index.html.twig
+```
+
+# Template
+
+> /templates/follower/\_follow_button.html.twig
