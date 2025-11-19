@@ -465,3 +465,11 @@
 > RegistrationFormType.php -> ->add('userProfile');
 
 > ![User Registration](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/11.jpg)
+
+### User Profile Page
+
+> symfony console make:controller -> ProfileController
+
+# Twig template
+
+> /templates/profle/show.html.twig
