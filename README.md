@@ -519,3 +519,5 @@ created: src/Controller/FollowerController.php
 # Included in
 
 > /templates/profile/show.html.twig
+
+> ![Follows](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/14.jpg)
