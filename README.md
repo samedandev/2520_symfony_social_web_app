@@ -510,3 +510,12 @@ created: src/Controller/FollowerController.php
 # Template
 
 > /templates/follower/\_follow_button.html.twig
+
+### SHARED Embed Twig folder
+
+> /templates/shared/\_tabs.html.twig
+> /templates/shared/\_tab.html.twig
+
+# Included in
+
+> /templates/profile/show.html.twig
