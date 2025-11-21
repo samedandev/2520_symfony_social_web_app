@@ -555,3 +555,13 @@ private function findAllQuery(
         return $query->orderBy('p.created', 'DESC');
     }
 ```
+
+### Simplify Query
+
+> MicroPostRepository -> public function findAllByAuthor()
+
+> ProfileController -> public function show(...findAllByAuthor...)
+
+> /templates/profile/show.html.twig
+
+> ![LessQueries](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/16.jpg)
