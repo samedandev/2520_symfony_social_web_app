@@ -521,3 +521,37 @@ created: src/Controller/FollowerController.php
 > /templates/profile/show.html.twig
 
 > ![Follows](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/14.jpg)
+
+### Reusable Queries
+
+> ![Reusable Queries](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/15.jpg)
+> MicroPostRepository.php
+
+```
+private function findAllQuery(
+        bool $withComments = false,
+        bool $withLikes = false,
+        bool $withAuthors = false,
+        bool $withProfiles = false,
+    ): QueryBuilder {
+        $query = $this->createQueryBuilder('p');
+        if ($withComments) {
+            $query->leftJoin('p.comments', 'c')
+                ->addSelect('c');
+        }
+        if ($withLikes) {
+            $query->leftJoin('p.likedBy', 'l')
+                ->addSelect('l');
+        }
+        if ($withAuthors || $withProfiles) {
+            $query->leftJoin('p.author', 'a')
+                ->addSelect('a');
+        }
+        if ($withProfiles) {
+            $query->leftJoin('a.userProfile', 'up')
+                ->addSelect('up');
+        }
+
+        return $query->orderBy('p.created', 'DESC');
+    }
+```
