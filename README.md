@@ -590,3 +590,23 @@ dd($this->findAllQuery(withLikes:true)
 > MicroPostRepository -> public function findAllByAuthors()
 
 > MicroPostController -> #[Route('/micro-post/follows', name: 'app_micro_post_follows')]
+
+### Profile Image
+
+> SettingsProfileController -> profileImage()
+
+# Template Image
+
+> /templates/settings_profile/profile_image.html.twig
+
+### Image Upload Form
+
+> symfony console make:form -> ProfileImageType
+
+# Add form to the Controller
+
+> SettingsProfileController -> public function profileImage()
+
+# Add form to the template
+
+> profile_image.html.twig
