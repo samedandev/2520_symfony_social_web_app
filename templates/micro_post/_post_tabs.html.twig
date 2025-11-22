@@ -1,0 +1,35 @@
+{% embed 'shared/_tabs.html.twig' %}
+	{% block tabs  %}
+		{% embed 'shared/_tab.html.twig' with { route: 'app_micro_post',classes:'bg-gray-900 pl-2 pr-2'} %}
+			{% block content %}
+				All Posts
+
+			{% endblock %}
+			{% block path %}
+				{{ path('app_micro_post')}}
+			{% endblock %}
+		{% endembed %}
+
+
+		{# TOP LIKED #}
+		{% embed 'shared/_tab.html.twig' with { route: 'app_micro_post_topliked',classes:'ml-2 bg-gray-900 pl-2 pr-2'} %}
+			{% block content %}
+				Top Liked Posts
+			{% endblock %}
+			{% block path %}
+				{{ path('app_micro_post_topliked') }}
+			{% endblock %}
+		{% endembed %}
+
+
+		{# You FOLLOW these people #}
+		{% embed 'shared/_tab.html.twig' with { route: 'app_micro_post_follows', classes:'ml-2 bg-gray-900 pl-2 pr-2'} %}
+			{% block content %}
+				From people you Follow
+			{% endblock %}
+			{% block path %}
+				{{ path('app_micro_post_follows') }}
+			{% endblock %}
+		{% endembed %}
+	{% endblock %}
+{% endembed %}

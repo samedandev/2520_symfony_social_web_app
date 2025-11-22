@@ -565,3 +565,22 @@ private function findAllQuery(
 > /templates/profile/show.html.twig
 
 > ![LessQueries](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/16.jpg)
+
+### Posts TAB Navigation
+
+> /templates/micro_post/\_post_tabs.html.twig
+
+### Posts with Most Likes
+
+> MicroPostRepository -> public function findAllWithMinLikes()
+
+> ![MinOfLikes](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/17.jpg)
+
+```
+dd($this->findAllQuery(withLikes:true)
+        ->select('p.id')   // return only the id
+        ->groupBy('p.id')  // 'p' is alias for posts
+        ->having('COUNT(l) >= :minLikes') // 'l' is alias for likes
+        ->setParameter('minLikes', $minLikes) // the passed parameter
+        ->getQuery()->getResult(Query::HYDRATE_SCALAR_COLUMN));
+```

@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\MicroPost;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -67,6 +68,18 @@ class MicroPostRepository extends ServiceEntityRepository
             'author',
             $author instanceof User ? $author->getId(): $author
         )->getQuery()->getResult();
+    }
+
+    // MINIMUM LIKES
+    public function findAllWithMinLikes(int $minLikes): array 
+    {
+        dd($this->findAllQuery(           
+            withLikes:true            
+        )->select('p.id') // return only the id
+        ->groupBy('p.id')  // 'p' is alias for posts
+        ->having('COUNT(l) >= :minLikes') // 'l' is alias for likes
+        ->setParameter('minLikes', $minLikes) // the passed parameter
+        ->getQuery()->getResult(Query::HYDRATE_SCALAR_COLUMN));
     }
 
     private function findAllQuery(
