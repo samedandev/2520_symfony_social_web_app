@@ -584,3 +584,9 @@ dd($this->findAllQuery(withLikes:true)
         ->setParameter('minLikes', $minLikes) // the passed parameter
         ->getQuery()->getResult(Query::HYDRATE_SCALAR_COLUMN));
 ```
+
+### Posts from people I FOLLOW
+
+> MicroPostRepository -> public function findAllByAuthors()
+
+> MicroPostController -> #[Route('/micro-post/follows', name: 'app_micro_post_follows')]
