@@ -661,3 +661,19 @@ $profile = $user->getUserProfile() ?? new UserProfile();
 ...
 {% endfor  %}
 ```
+
+### Extra Privacy Feature
+
+# New 'extra_privacy' column on micro_post table
+
+# Initialize any new post with 'false' extraprivacy
+
+> MicroPostTYpe -> $builder->add('extraPrivacy')
+
+> MicroPost.php -> public function \_\_construct(){$this->extraPrivacy = false;}
+
+# MicroPostVoter.php logic
+
+> case MicroPost::VIEW:
+
+# Add check in \_form.html.twig

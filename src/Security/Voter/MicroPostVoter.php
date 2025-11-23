@@ -57,7 +57,15 @@ final class MicroPostVoter extends Voter
             case MicroPost::VIEW:
                 // logic to determine if the user can VIEW
                 // return true or false
-                return true;
+                if(!$subject->isExtraPrivacy()) {
+                    return true;
+                }
+                // To view post you need to be auth and follow the author
+                return $isAuth &&
+                    ($subject->getAuthor()->getId() === $user->getId()
+                        || $subject->getAuthor()->getFollows()->contains($user)
+                    );
+                
                 // break;
         }
 
