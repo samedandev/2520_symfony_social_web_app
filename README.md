@@ -627,3 +627,37 @@ dd($this->findAllQuery(withLikes:true)
 $profile = $user->getUserProfile() ?? new UserProfile();
                 $profile->setImage($newFileName);
 ```
+
+### Show AVATAR Images
+
+# Avatar Twig partial
+
+> /templates/shared/\_avatar.html.twig
+
+# Folder (safe, not public)
+
+> /config/services.yaml -> parameters
+
+# Folder PUBLIC for twig
+
+> /config/packages/twig.yaml -> globals:profiles
+
+> ![AvatarImage](https://github.com/samedandev/2520_symfony_social_web_app/blob/main/_printscreens/18.jpg)
+
+### Twig loop, inside 'for'
+
+> /templates/micro_post_show.html.twig
+
+```
+{% for comment in post.comments %}
+...
+<div class="border ml-4 mr-6 pb-12
+    {% if not loop.last %}
+    border-gray-300 dark:border-gray-600
+    {% else %}
+    border-transparent
+    {% endif %}">
+</div>
+...
+{% endfor  %}
+```

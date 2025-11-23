@@ -89,8 +89,11 @@ final class SettingsProfileController extends AbstractController
                     $this->addFlash('error', 'Error in profile image.' );
                 }
                 // store imageName in DBB user_profile table
-                $profile = $user->getUserProfile() ?? new UserProfile();
+                $profile = $user->getUserProfile() ?? new UserProfile($user);                
                 $profile->setImage($newFileName);
+                // dd($profile);
+                // save profile if new profile
+                $user->setUserProfile($profile);
                 $users->add($user, true);
                 $this->addFlash('success', 'Your profile image was updated.' );
 
