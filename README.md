@@ -610,3 +610,20 @@ dd($this->findAllQuery(withLikes:true)
 # Add form to the template
 
 > profile_image.html.twig
+
+### Image UPLOAD LOGIC
+
+> SettingsProfileController.php -> public function profileImage()
+
+# Directory (folder) for uploaded image
+
+> /config/services.yaml -> profiles_directory: '%kernel.project_dir%/public/uploads/profiles'
+
+# 'image' added in UserProfile table
+
+# Store Image in UserProfile
+
+```
+$profile = $user->getUserProfile() ?? new UserProfile();
+                $profile->setImage($newFileName);
+```
